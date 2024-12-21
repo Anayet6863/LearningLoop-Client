@@ -4,6 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home";
+import Services from "../Pages/Services";
+import AddServices from "../Pages/AddServices";
+import ManageServices from "../Pages/ManageServices";
+import BookedServices from "../Pages/BookedServices";
+import ServiceToDo from "../Pages/ServiceToDo";
 const router =  createBrowserRouter([
     {
         path:'/',
@@ -13,8 +18,23 @@ const router =  createBrowserRouter([
                 path:'/',
                 element:<Home></Home>
             },{
-                path:"/allService",
-                element:<h1>All services.</h1>
+                path:"/services",
+                element:<Services></Services>
+            },
+            {
+                path:'/addServices',
+                element:<AddServices></AddServices>
+            },
+            {
+                path:"/manageServices",
+                element:<ManageServices></ManageServices>
+            },{
+                path:"/bookedServices",
+                element:<BookedServices></BookedServices>
+            },
+            {
+                path:"/serviceToDo",
+                element:<ServiceToDo></ServiceToDo>
             }
         ]
        

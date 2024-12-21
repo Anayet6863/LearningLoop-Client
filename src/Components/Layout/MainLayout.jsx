@@ -1,20 +1,21 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import NavBar from '../Pages/NavBar';
 
 const MainLayout = () => {
     return (
         <div>
             <header>
-            <div className='bg-red-600'><h1>Nav Bar.</h1></div>
+            <NavBar></NavBar>
             </header>
            
-            <section>
+            <section className='mt-[95px]'>
                 <Outlet>
 
                 </Outlet>
             </section>
             <footer>
-                
+
             </footer>
         </div>
     );

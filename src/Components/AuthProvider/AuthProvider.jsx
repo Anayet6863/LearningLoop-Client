@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth,email,password)
   };
   const handleLogin = (email, password) => {
-     console.log(email,password);
+     //console.log(email,password);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
     return await signInWithPopup(auth, provider);
   };
   const manageProfile = (name, photo) => {
-    console.log(name, photo);
+   // console.log(name, photo);
    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,

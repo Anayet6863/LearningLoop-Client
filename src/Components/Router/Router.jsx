@@ -9,6 +9,8 @@ import AddServices from "../Pages/AddServices";
 import ManageServices from "../Pages/ManageServices";
 import BookedServices from "../Pages/BookedServices";
 import ServiceToDo from "../Pages/ServiceToDo";
+import Registration from "../Pages/Registration";
+import Login from "../Pages/Login";
 const router =  createBrowserRouter([
     {
         path:'/',
@@ -35,6 +37,14 @@ const router =  createBrowserRouter([
             {
                 path:"/serviceToDo",
                 element:<ServiceToDo></ServiceToDo>
+            },
+            {
+                path:"/register",
+                element:<Registration></Registration>
+            },
+            {
+                path:"/login",
+                element:<Login></Login>
             }
         ]
        

@@ -31,6 +31,17 @@ const NavBar = () => {
   //console.log(user);
   //console.log(user?.displayName);
  
+  const handleLogOutBtn=()=>{
+    handleLogOut()
+   
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully logOut.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+  }
   const [selectedValue, setSelectedValue] = useState('');
   const navigate = useNavigate();
 
@@ -49,7 +60,7 @@ const NavBar = () => {
       <NavLink to="/services" className="p-2 text-xl font-bold">
         Service
       </NavLink>
-      {1 && (
+      {user && (
         <select
         value={selectedValue} // Set the value based on state
         onChange={handleChange}
@@ -203,7 +214,7 @@ const NavBar = () => {
           )}
           {user && user?.email ? (
             <Link to={"/"}>
-              <button className="btn btn-neutral text-white">LogOut</button>
+              <button onClick={handleLogOutBtn} className="btn btn-neutral text-white">LogOut</button>
             </Link>
           ) : (
             <Link to={"/login"}>

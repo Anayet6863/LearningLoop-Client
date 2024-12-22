@@ -14,7 +14,7 @@ const SingleServiceShow = ({ item }) => {
     serviceArea,
   } = item;
   const handleViewDetailsBtn=(id)=>{
-    console.log(id);
+   // console.log(id);
     navigate(`/singleServiceDetails/${id}`)
 
   }

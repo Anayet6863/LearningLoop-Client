@@ -12,8 +12,8 @@ const SingleServiceDetails = () => {
   //console.log(item);
   const navigate = useNavigate();
   const handleBookNOwBtn =  (id)=>{
-        console.log(id);
-        navigate(``)
+        //console.log(id);
+        navigate(`/bookedService/${id}`)
   }
   return (
     <div className="flex flex-col justify-center items-center">

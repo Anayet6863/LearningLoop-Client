@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import Banner from "./Banner";
+import Popular from "./Popular";
 
 const Home = () => {
-    return (
-        <div className='bg-red-400'>
-            <h1>Home </h1>
-        </div>
-    );
+  return (
+    <div>
+        <Banner></Banner>
+        <Popular></Popular>
+    </div>
+  );
 };
 
 export default Home;

@@ -11,6 +11,7 @@ import BookedServices from "../Pages/BookedServices";
 import ServiceToDo from "../Pages/ServiceToDo";
 import Registration from "../Pages/Registration";
 import Login from "../Pages/Login";
+import SingleServiceDetails from "../Pages/SingleServiceDetails";
 const router =  createBrowserRouter([
     {
         path:'/',
@@ -45,6 +46,14 @@ const router =  createBrowserRouter([
             {
                 path:"/login",
                 element:<Login></Login>
+            },
+            {
+                path:"/singleServiceDetails/:id",
+                element:<SingleServiceDetails></SingleServiceDetails>,
+                loader:({params}) => fetch(`http://localhost:5000/singleService/${params.id}`)
+            },
+            {
+                path:"/bookedService"
             }
         ]
        

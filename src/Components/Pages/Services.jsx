@@ -8,7 +8,7 @@ const Services = () => {
     axios
       .get("http://localhost:5000/allServices")
       .then((response) => {
-        console.log(response.data);
+       // console.log(response.data);
         setAllData(response.data);
       })
       .catch((error) => {

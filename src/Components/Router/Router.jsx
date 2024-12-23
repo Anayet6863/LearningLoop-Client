@@ -14,66 +14,96 @@ import Login from "../Pages/Login";
 import SingleServiceDetails from "../Pages/SingleServiceDetails";
 import ServiceBooked from "../Pages/ServiceBooked";
 import ServiceUpdate from "../Pages/ServiceUpdate";
-const router =  createBrowserRouter([
-    {
-        path:'/',
-        element:<MainLayout></MainLayout>,
-        children:[
-            {
-                path:'/',
-                element:<Home></Home>
-            },{
-                path:"/services",
-                element:<Services></Services>
-            },
-            {
-                path:'/addServices',
-                element:<AddServices></AddServices>
-            },
-            {
-                path:"/manageServices",
-                element:<ManageServices></ManageServices>,
-                loader:()=>fetch("http://localhost:5000/allServices")
-            },{
-                path:"/bookedServices",
-                element:<BookedServices></BookedServices>
-            },
-            {
-                path:"/serviceToDo",
-                element:<ServiceToDo></ServiceToDo>
-            },
-            {
-                path:"/register",
-                element:<Registration></Registration>
-            },
-            {
-                path:"/login",
-                element:<Login></Login>
-            },
-            {
-                path:"/singleServiceDetails/:id",
-                element:<SingleServiceDetails></SingleServiceDetails>,
-                loader:({params}) => fetch(`http://localhost:5000/singleService/${params.id}`)
-            },
-            {
-                path:"/bookedService/:id",
-                element:<ServiceBooked></ServiceBooked>,
-                loader:({params}) => fetch(`http://localhost:5000/singleService/${params.id}`)
-            },
-            {
-                path:"/serviceUpdate/:id",
-                element:<ServiceUpdate></ServiceUpdate>,
-                loader:({params})=>fetch(`http://localhost:5000/updatedService/${params.id}`)
-            }
-        ]
-       
-    },
-    {
-        path:'*',
-        element:<h1>ERROR!</h1>
-    }
-
-
-
-])
+import PrivateRoute from "./PrivateRoute";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/services",
+        element: <Services></Services>,
+      },
+      {
+        path: "/addServices",
+        element: (
+          <PrivateRoute>
+            <AddServices></AddServices>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manageServices",
+        element: (
+          <PrivateRoute>
+            <ManageServices></ManageServices>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/allServices"),
+      },
+      {
+        path: "/bookedServices",
+        element: (
+          <PrivateRoute>
+            <BookedServices></BookedServices>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/serviceToDo",
+        element: (
+          <PrivateRoute>
+            <ServiceToDo></ServiceToDo>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/register",
+        element: <Registration></Registration>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/singleServiceDetails/:id",
+        element: (
+          <PrivateRoute>
+            <SingleServiceDetails></SingleServiceDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/singleService/${params.id}`),
+      },
+      {
+        path: "/bookedService/:id",
+        element: (
+          <PrivateRoute>
+            <ServiceBooked></ServiceBooked>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/singleService/${params.id}`),
+      },
+      {
+        path: "/serviceUpdate/:id",
+        element: (
+          <PrivateRoute>
+            <ServiceUpdate></ServiceUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/updatedService/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <h1>ERROR!</h1>,
+  },
+]);
 export default router;

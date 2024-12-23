@@ -1,53 +1,66 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useLoaderData, useParams } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-const AddServices = () => {
-    const {user} = useContext(AuthContext);
-    //console.log(user);
-   // console.log(user.photoURL);
-   // console.log(user.displayName);
-    const handleForm=e=>{
-        e.preventDefault();
-        const form = e.target;
-        const serviceName = form.serviceName.value;
-        const serviceImage = form.serviceImageUrl.value;
-        const serviceDescription = form.serviceDescription.value;
-        const serviceArea = form.serviceArea.value;
-        const servicePrice = form.servicePrice.value;
-        const userMail  = user?.email;
-        const userImage = user?.photoURL;
-        const userName = user?.displayName;
 
-        const userInfo = {
-          serviceName,serviceImage,serviceDescription,serviceArea,userMail,userImage,userName,servicePrice,
-        }
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to cancel this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, add it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            axios.post('http://localhost:5000/addService',userInfo)
-            //console.log(userInfo);
-            .then(res=>{
-              //console.log(res.data);
-              if(res.data.acknowledged)
+const ServiceUpdate = () => {
+  //const [servieData,setServiceData] = useState([])
+  const { id } = useParams();
+
+  const servieData = useLoaderData();
+  const {
+    serviceName,
+    serviceImage,
+    servicePrice,
+    service,
+    serviceDescription,
+    serviceArea,
+  } = servieData;
+ // console.log(servieData);
+  const handleForm = (e, id) => {
+    e.preventDefault();
+    const form = e.target;
+    const serviceName = form.serviceName.value;
+    const serviceImage = form.serviceImageUrl.value;
+    const serviceDescription = form.serviceDescription.value;
+    const serviceArea = form.serviceArea.value;
+    const servicePrice = form.servicePrice.value;
+    const updateInfo = {
+      serviceName,
+      serviceImage,
+      serviceDescription,
+      serviceArea,
+      servicePrice,
+    };
+    //console.log(updateInfo);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, update it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .patch(`http://localhost:5000/updatedService/${id}`, updateInfo)
+          .then((res) => {
+            console.log(res.data);
+            if(res.data.modifiedCount>0){
                 Swal.fire({
-                  title: "Hurrah!",
-                  text: "Your service is added..",
-                  icon: "success"
-                });
-                form.reset()
-            })
-          }
-        });
+                    title: "Updated!",
+                    text: "Your file has been update.",
+                    icon: "success",
+                  });
+            }
+          });
+       
+      }
+    });
+  };
 
-    }
   return (
     <div className="bg-gray-400 flex justify-center items-center min-h-[calc(100vh-95px)]">
       <div class="flex bg-white rounded-lg shadow-lg w-4/5 max-w-5xl overflow-hidden">
@@ -61,10 +74,10 @@ const AddServices = () => {
 
         <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
           <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
-            Add a service
+            Update the service
           </h2>
 
-          <form class="space-y-4" onSubmit={handleForm}>
+          <form class="space-y-4" onSubmit={(e) => handleForm(e, id)}>
             <div>
               <label
                 for="email"
@@ -77,6 +90,7 @@ const AddServices = () => {
                 name="serviceName"
                 placeholder="Enter hrer..."
                 required
+                defaultValue={serviceName}
                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -88,10 +102,11 @@ const AddServices = () => {
                 Service Image Url
               </label>
               <input
-                type="url"
+                type="text"
                 required
                 name="serviceImageUrl"
                 placeholder="Enter here..."
+                defaultValue={serviceImage}
                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -100,7 +115,7 @@ const AddServices = () => {
                 for="email"
                 class="block text-sm font-medium text-gray-600"
               >
-                Service Description 
+                Service Description
               </label>
               <input
                 type="text-area"
@@ -109,13 +124,11 @@ const AddServices = () => {
                 placeholder="Enter here..."
                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 maxLength={100}
+                defaultValue={serviceDescription}
               />
             </div>
             <div>
-              <label
-                
-                class="block text-sm font-medium text-gray-600"
-              >
+              <label class="block text-sm font-medium text-gray-600">
                 Service Area
               </label>
               <input
@@ -123,14 +136,12 @@ const AddServices = () => {
                 required
                 name="serviceArea"
                 placeholder="Enter here..."
+                defaultValue={serviceArea}
                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div>
-              <label
-              
-                class="block text-sm font-medium text-gray-600"
-              >
+              <label class="block text-sm font-medium text-gray-600">
                 Service Price
               </label>
               <input
@@ -138,6 +149,7 @@ const AddServices = () => {
                 name="servicePrice"
                 required
                 placeholder="Enter here..."
+                defaultValue={servicePrice}
                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -148,11 +160,10 @@ const AddServices = () => {
               Submit
             </button>
           </form>
-
         </div>
       </div>
     </div>
   );
 };
 
-export default AddServices;
+export default ServiceUpdate;

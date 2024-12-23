@@ -13,6 +13,7 @@ import Registration from "../Pages/Registration";
 import Login from "../Pages/Login";
 import SingleServiceDetails from "../Pages/SingleServiceDetails";
 import ServiceBooked from "../Pages/ServiceBooked";
+import ServiceUpdate from "../Pages/ServiceUpdate";
 const router =  createBrowserRouter([
     {
         path:'/',
@@ -58,6 +59,11 @@ const router =  createBrowserRouter([
                 path:"/bookedService/:id",
                 element:<ServiceBooked></ServiceBooked>,
                 loader:({params}) => fetch(`http://localhost:5000/singleService/${params.id}`)
+            },
+            {
+                path:"/serviceUpdate/:id",
+                element:<ServiceUpdate></ServiceUpdate>,
+                loader:({params})=>fetch(`http://localhost:5000/updatedService/${params.id}`)
             }
         ]
        

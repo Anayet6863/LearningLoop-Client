@@ -1,8 +1,8 @@
 import React from "react";
 
 const BookedDataShow = ({ item }) => {
-    const {serviceImage,serviceName,serviceDate,serviceDescription,servicePrice} = item;
-  //console.log(item);
+    const {serviceImage,serviceName,serviceDate,serviceDescription,servicePrice,serviceStatus} = item;
+  
   
   return (
    
@@ -26,12 +26,19 @@ const BookedDataShow = ({ item }) => {
            {serviceDescription}
           </p>
           <div class="flex space-x-4">
-            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-              Edit
+            {
+              serviceStatus === "pending"?
+              (<button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                Pending
+              </button>)
+              :
+              <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-600" >
+              Accepted
             </button>
-            <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700" onClick={()=>handleDeleteBtn(item._id)}>
-              Delete
-            </button>
+
+
+            }
+            
           </div>
         </div>
       </div>

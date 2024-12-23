@@ -42,6 +42,7 @@ const AddServices = () => {
                   text: "Your service is added..",
                   icon: "success"
                 });
+                form.reset()
             })
           }
         });

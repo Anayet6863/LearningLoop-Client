@@ -1,8 +1,36 @@
 import React from 'react';
-
+import axios from 'axios';
+import Swal from 'sweetalert2'
 const ManageDataShow = ({item}) => {
     const {serviceImage,serviceName,serviceDate,serviceDescription,servicePrice} = item;
     console.log(item);
+    const handleDeleteBtn=(id)=>{
+      console.log(id);
+      
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios.delete(`http://localhost:5000/deleteBookedService/${id}`)
+          .then(res=>{
+            if(res.data.deletedCount>0){
+              Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+            }
+          })
+          
+        }
+      });
+    }
     return (
         <div className="bg-gray-100 shadow-md rounded-lg overflow-hidden p-4 hover:shadow-xl transition-shadow duration-300">
         <img
@@ -19,7 +47,7 @@ const ManageDataShow = ({item}) => {
             </button>
             <button
               className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300"
-              //onClick={() => handleDeleteBtn(item._id)}
+              onClick={() => handleDeleteBtn(item._id)}
             >
               Delete
             </button>

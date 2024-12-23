@@ -4,46 +4,38 @@ import "../../../src/index.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 import Swal from "sweetalert2";
+import { useTheme } from "./ThemeContext";
 
 const NavBar = () => {
   const { user, handleLogOut } = useContext(AuthContext);
- // console.log(user);
-  //   const { theme, toggleTheme } = useTheme();
-  //   console.log(theme);
-  //   const handleLogOutBtn = () => {
-  //     handleLogOut();
-  //     Swal.fire({
-  //       position: "top-end",
-  //       icon: "success",
-  //       title: "Successfully logOut.",
-  //       showConfirmButton: false,
-  //       timer: 1500,
-  //     });
-  //   };
-  //   const handleThemeBtn = () => {
-  //     toggleTheme();
-  //     console.log("Clicked");
-  //   };
-
-  //   const [isChecked, setIsChecked] = useState(false);
-  //   const handleCheckboxChange = () => {
-  //     setIsChecked(!isChecked);
-  //  };
+  // console.log(user);
+  const [isChecked, setIsChecked] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  console.log(theme);
+  const handleThemeBtn = () => {
+    toggleTheme();
+  };
+ 
+  
+  console.log(isChecked);
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
   //console.log(user);
   //console.log(user?.displayName);
- 
-  const handleLogOutBtn=()=>{
-    handleLogOut()
-   
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Successfully logOut.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-  }
-  const [selectedValue, setSelectedValue] = useState('');
+  //  const isChecked = true;
+  const handleLogOutBtn = () => {
+    handleLogOut();
+
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Successfully logOut.",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+  const [selectedValue, setSelectedValue] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -63,54 +55,33 @@ const NavBar = () => {
       </NavLink>
       {user && (
         <select
-        value={selectedValue} // Set the value based on state
-        onChange={handleChange}
-        className="p-2 bg-gray-100 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-      >
-        <option value="">Dashboard</option>
-        <option value="/addServices">Add Service</option>
-        <option value="/manageServices">Manage Service</option>
-        <option value="/bookedServices">Booked Services</option>
-        <option value="/serviceToDo">Service To-Do</option>
-      </select>
+          value={selectedValue} // Set the value based on state
+          onChange={handleChange}
+          className="p-2 bg-gray-100 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          <option value="">Dashboard</option>
+          <option value="/addServices">Add Service</option>
+          <option value="/manageServices">Manage Service</option>
+          <option value="/bookedServices">Booked Services</option>
+          <option value="/serviceToDo">Service To-Do</option>
+        </select>
       )}
-
-      {/* <div className="lg:hidden">
-      <label className="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center">
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-                className="sr-only"
-                onClick={handleThemeBtn}
-              />
-               <span
-                className={`label flex items-center text-sm font-medium ${
-                  isChecked ? "text-gray-300" : "text-black"
-                }`}
-              >
-                Light
-              </span>
-              <span
-                className={`slider mx-4 flex h-8 w-[60px] items-center rounded-full p-1 duration-200 ${
-                  isChecked ? "bg-[#212b36]" : "bg-[#CCCCCE]"
-                }`}
-              >
-                <span
-                  className={`dot h-6 w-6 rounded-full bg-white duration-200 ${
-                    isChecked ? "translate-x-[28px]" : ""
-                  }`}
-                ></span>
-              </span>
-              <span
-                className={`label flex items-center text-sm font-medium ${
-                  isChecked ? "text-gray-300" : "text-black"
-                }`}
-              >
-                Dark
-              </span>
-            </label>
-      </div> */}
+      <button className="btn w-12 h-12 flex items-center justify-center rounded-full p-1 bg-gray-200 mr-3 lg:hidden" onClick={() => { handleThemeBtn(); handleCheckboxChange(); }}>
+          {isChecked ? (
+            <img
+              src="https://i.ibb.co.com/yFbw5wL/icons8-sun-50.png"
+              alt="Light Theme"
+              className="w-10 h-10 rounded-[100%]"
+            />
+          ) : (
+            <img
+              src="https://i.ibb.co.com/xHXjTGv/icons8-sun-50-1.png"
+              
+              alt="Dark Theme"
+              className="w-10 h-10 rounded-[100%]"
+            />
+          )}
+        </button>
     </div>,
   ];
 
@@ -154,45 +125,23 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1 items-center ">{links}</ul>
       </div>
       <div className="navbar-end">
-        {/* <div className="hidden lg:block">
-            <label className="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center">
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-                className="sr-only"
-                onClick={handleThemeBtn}
-              />
-               <span
-                className={`label flex items-center text-sm font-medium ${
-                  isChecked ? "text-gray-300" : "text-black"
-                }`}
-              >
-                Light
-              </span>
-              <span
-                className={`slider mx-4 flex h-8 w-[60px] items-center rounded-full p-1 duration-200 ${
-                  isChecked ? "bg-[#212b36]" : "bg-[#CCCCCE]"
-                }`}
-              >
-                <span
-                  className={`dot h-6 w-6 rounded-full bg-white duration-200 ${
-                    isChecked ? "translate-x-[28px]" : ""
-                  }`}
-                ></span>
-              </span>
-              <span
-                className={`label flex items-center text-sm font-medium ${
-                  isChecked ? "text-gray-300" : "text-black"
-                }`}
-              >
-                Dark
-              </span>
-            </label>
-            {/* <label>
-              <button  className="bg-gray-600 rounded-[50%] btn mr-3" onClick={handleThemeBtn}></button>
-            </label> 
-          </div> */}
+        
+        <button className="btn w-12 h-12 items-center justify-center rounded-full p-1 bg-gray-200 mr-3 hidden sm:block" onClick={() => { handleThemeBtn(); handleCheckboxChange(); }}>
+          {isChecked ? (
+            <img
+              src="https://i.ibb.co.com/yFbw5wL/icons8-sun-50.png"
+              alt="Light Theme"
+              className="w-10 h-10 rounded-[100%]"
+            />
+          ) : (
+            <img
+              src="https://i.ibb.co.com/xHXjTGv/icons8-sun-50-1.png"
+              
+              alt="Dark Theme"
+              className="w-10 h-10 rounded-[100%]"
+            />
+          )}
+        </button>
 
         <div className="flex gap-3">
           {user && user?.email && user?.photoURL ? (
@@ -215,7 +164,12 @@ const NavBar = () => {
           )}
           {user && user?.email ? (
             <Link to={"/"}>
-              <button onClick={handleLogOutBtn} className="btn btn-neutral text-white">LogOut</button>
+              <button
+                onClick={handleLogOutBtn}
+                className="btn btn-neutral text-white"
+              >
+                LogOut
+              </button>
             </Link>
           ) : (
             <Link to={"/login"}>

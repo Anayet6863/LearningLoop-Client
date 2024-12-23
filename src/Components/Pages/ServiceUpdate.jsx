@@ -102,7 +102,7 @@ const ServiceUpdate = () => {
                 Service Image Url
               </label>
               <input
-                type="text"
+                type="url"
                 required
                 name="serviceImageUrl"
                 placeholder="Enter here..."

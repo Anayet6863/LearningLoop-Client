@@ -31,7 +31,8 @@ const router =  createBrowserRouter([
             },
             {
                 path:"/manageServices",
-                element:<ManageServices></ManageServices>
+                element:<ManageServices></ManageServices>,
+                loader:()=>fetch("http://localhost:5000/allServices")
             },{
                 path:"/bookedServices",
                 element:<BookedServices></BookedServices>

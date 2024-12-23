@@ -12,6 +12,7 @@ const ServiceBooked = () => {
   //   console.log(item);
   const { user } = useContext(AuthContext);
   //console.log(user?.email);
+  const currentUserMail = user?.email;
   const {
     _id,
     serviceImage,
@@ -41,6 +42,7 @@ const ServiceBooked = () => {
       serviceStatus,
       serviceDate,
       specialInstructions,
+      currentUserMail,
     };
     //console.log(bookedInfo);
 

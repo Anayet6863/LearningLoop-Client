@@ -112,16 +112,18 @@ const Login = () => {
 
               <div className="flex flex-col">
                 <div>
-                  <p class="text-xl text-gray-300 bg-red-500 text-center rounded-md">{error}</p>
+                  <p class="text-xl text-gray-300 bg-red-500 text-center rounded-md">
+                    {error}
+                  </p>
 
-                  <p class="text-gray-100 font-semibold">
+                  <p className="text-gray-100 font-semibold">
                     Doesn't have an account?
-                    <a
-                      href="/login"
-                      class="text-red-500 underline hover:text-red-700  ml-2"
+                    <Link
+                      to="/register"
+                      className="text-red-500 underline hover:text-red-700 ml-2"
                     >
                       Please register first.
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

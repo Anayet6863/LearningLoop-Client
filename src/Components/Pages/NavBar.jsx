@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const NavBar = () => {
   const { user, handleLogOut } = useContext(AuthContext);
-  console.log(user);
+ // console.log(user);
   //   const { theme, toggleTheme } = useTheme();
   //   console.log(theme);
   //   const handleLogOutBtn = () => {

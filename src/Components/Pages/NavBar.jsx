@@ -57,7 +57,7 @@ const NavBar = () => {
         <select
           value={selectedValue} // Set the value based on state
           onChange={handleChange}
-          className="p-2 bg-gray-100 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="p-2 rounded-md text-lg font-bold cursor-pointer focus:bg-purple-700 focus:text-white focus:border-purple-700 focus:outline-purple-700"
         >
           <option value="">Dashboard</option>
           <option value="/addServices">Add Service</option>
@@ -86,7 +86,7 @@ const NavBar = () => {
   ];
 
   return (
-    <div className="navbar bg-base-500 fixed top-0 left-0 w-full  shadow-md z-50 backdrop-blur-lg bg-opacity-50 ">
+    <div className="navbar bg-base-500 fixed top-0 left-0 w-full  shadow-md z-50 backdrop-blur-lg bg-opacity-50  md:pl-24 md:pr-24">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -114,12 +114,12 @@ const NavBar = () => {
         </div>
         <div>
           <img
-            src="https://i.ibb.co.com/CWqTS2j/image-2024-12-21-23-59-53.png"
+            src="https://i.ibb.co.com/Sshq3mX/DALL-E-2024-12-24-10-52-03-A-colorful-modern-logo-design-for-an-educational-brand-The-logo-features.webp"
             alt=""
-            className="w-[50px] h-[50px] rounded-full"
+            className="w-[50px] h-[50px] rounded-full hover:scale-150"
           />
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold ml-2">LearningLoop</h1>
+        <h1 className="text-2xl md:text-4xl font-bold  md:ml-4">LearningLoop</h1>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 items-center ">{links}</ul>

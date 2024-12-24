@@ -28,7 +28,7 @@ const Footer = () => {
       <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4 flex justify-around">
         <aside className="grid-flow-col items-center">
           <img
-            src="https://i.ibb.co.com/CWqTS2j/image-2024-12-21-23-59-53.png"
+            src="https://i.ibb.co.com/Sshq3mX/DALL-E-2024-12-24-10-52-03-A-colorful-modern-logo-design-for-an-educational-brand-The-logo-features.webp"
             className="w-20 h-20 rounded-full"
           ></img>
           <p>

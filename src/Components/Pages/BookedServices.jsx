@@ -19,7 +19,7 @@ const BookedServices = () => {
     <>
       <div className="mt-10">
         <h1 className="text-3xl text-red-500 text-center">
-          Your Booking List:
+          Your Booking List: Has {bookedData.length} services.
         </h1>
       </div>
       <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2 items-center md:p-10">

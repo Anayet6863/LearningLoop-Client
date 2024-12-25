@@ -1,7 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+.leckerli-one-regular{
+    font-family: "Leckerli One", serif;
+    font-style: normal;
+  } */
+ 
 a.active{
     background-color: #7e22ce ;
     color: white;

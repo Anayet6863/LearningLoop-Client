@@ -13,6 +13,7 @@ const ServiceBooked = () => {
   const { user } = useContext(AuthContext);
   //console.log(user?.email);
   const currentUserMail = user?.email;
+  
   const {
     _id,
     serviceImage,
@@ -24,13 +25,15 @@ const ServiceBooked = () => {
     serviceArea,
     userMail,
   } = item;
+  const id = _id;
+  console.log(id);
   const handlePurchaseBtn = (e) => {
     e.preventDefault();
     // const specialInstruction = e.target.specialInstruction.value;
     // const serviceDate = e.target.serviceDate.value;
     const serviceStatus = "pending";
     const bookedInfo = {
-      _id,
+      id,
       serviceImage,
       serviceName,
       serviceDescription,
@@ -65,6 +68,19 @@ const ServiceBooked = () => {
                 text: "Your Service been deleted.",
                 icon: "success",
               });
+            }
+          })
+          .catch((error) => {
+            if (axios.isAxiosError(error)) {
+              console.log(error.message); 
+        
+              Swal.fire({
+                title: "Error!",
+                text: error.response?.data?.message || "Something went wrong!",
+                icon: "error",
+              });
+            } else {
+              console.error("An unexpected error occurred:", error);
             }
           });
       }

@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { json, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import Lottie from "lottie-react";
+import image from '../../../src/assets/lottieImage'
 const Registration = () => {
   const {user, handleRegister, signOut, manageProfile, handleGoogleLogin } =
     useContext(AuthContext);
@@ -86,7 +87,10 @@ const Registration = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-95px)] bg-gradient-to-b from-purple-500 to-blue-500">
+    <div className="flex flex-col md:flex items-center justify-center min-h-[calc(100vh-95px)] bg-gradient-to-b from-purple-500 to-blue-500">
+      <div className="">
+          <Lottie animationData={image}></Lottie>
+      </div>
       <div class="w-full max-w-md p-6 bg-indigo-900 rounded-lg shadow-lg h-[500px]">
         <h2 class="text-2xl font-bold text-center text-white mb-6">
           Registration Form
@@ -147,7 +151,7 @@ const Registration = () => {
           </button>
         </form>
         <p className="text-xl text-red-500 text-center">{error}</p>
-            <p className="text-[rgb(112,111,111)] text-center mt-4 font-semibold">
+            <p className="text-[rgb(228,220,220)] text-center mt-4 font-semibold">
               Already have an account?{" "}
               <Link className="text-[rgb(223,130,93)]" to={"/login"}>
                 Login

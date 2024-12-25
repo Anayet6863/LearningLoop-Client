@@ -121,7 +121,7 @@ const NavBar = () => {
             className="w-[50px] h-[50px] rounded-full hover:scale-150"
           />
         </div>
-        <h1 className="text-2xl md:text-4xl font-bold  md:ml-4">
+        <h1 className="text-2xl md:text-4xl font-bold leckerli-one-regular  md:ml-4">
           LearningLoop
         </h1>
       </div>

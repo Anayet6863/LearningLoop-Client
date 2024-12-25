@@ -93,7 +93,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-[calc(100vh-95px)] bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-500 flex items-center justify-center ">
+    <div className="min-h-[calc(100vh-98px)] bg-gradient-to-b from-blue-300 via-purple-100 to-indigo-200  flex items-center justify-center ">
       <div class="bg-white shadow-lg rounded-lg overflow-hidden flex max-w-4xl w-full ">
         {/* <!-- Left Section --> */}
         <div class="w-1/2 bg-gradient-to-b from-purple-700 to-indigo-600 p-8 text-white hover:border hover:border-white">

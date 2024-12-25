@@ -4,13 +4,13 @@ import Swal from "sweetalert2";
 
 const ShowServiceToDo = ({ item }) => {
   const [newServiceStatus, setNewServiceStatus] = useState("");
-
+  const currentUserMail= item?.currentUserMail;
   const handleStatusChange = (e, id) => {
     const updatedStatus = e.target.value;
     setNewServiceStatus(updatedStatus);
     console.log(updatedStatus);
 
-    const info = { newServiceStatus: updatedStatus };
+    const info = { newServiceStatus: updatedStatus, currentUserMail};
 
     axios
       .patch(`http://localhost:5000/updatedStatus/${id}`, info)

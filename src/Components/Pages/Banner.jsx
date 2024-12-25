@@ -16,7 +16,7 @@ const Banner = () => {
         />
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center
          ">
-          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
+          <div class="ml-20 text-white leckerli-one-regular animate__animated animate__bounce animate__slow animate__infinite">
             <h1 class="text-5xl font-bold">Welcome to Robotics Camp</h1>
             <h1 class="text-5xl font-bold">EDUCATION</h1>
             <p className="mt-4 text-lg">
@@ -44,7 +44,7 @@ const Banner = () => {
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-            <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
+            <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite leckerli-one-regular">
               <h2 className="text-4xl font-bold">
                 Discover the Beauty of Mathematics
               </h2>
@@ -77,7 +77,7 @@ const Banner = () => {
         />
 
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
+          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite leckerli-one-regular">
             <h2 className="text-4xl font-bold">Code Your Way to the Future</h2>
 
             <p className="mt-4 text-lg">
@@ -107,7 +107,7 @@ const Banner = () => {
         />
 
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
+          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite leckerli-one-regular">
             <h2 className="text-4xl font-bold">
               Feel the Rhythm of Creativity
             </h2>

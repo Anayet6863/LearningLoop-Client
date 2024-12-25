@@ -17,12 +17,12 @@ const BookedServices = () => {
 
   return (
     <>
-      <div className="mt-10">
-        <h1 className="text-3xl text-red-500 text-center">
+      <div className="mt-10"> 
+        <h1 className="text-3xl text-red-500 font-bold text-center p-10">
           Your Booking List: Has {bookedData.length} services.
         </h1>
       </div>
-      <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2 items-center md:p-10">
+      <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2 items-center md:p-10  container mx-auto">
         {bookedData.map((item) => (
           <BookedDataShow key={item._id} item={item}></BookedDataShow>
         ))}

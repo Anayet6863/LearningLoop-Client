@@ -31,12 +31,12 @@ const Services = () => {
   };
 
   return (
-    <div className="bg-gray-500">
+    <div className="bg-gray-300">
       <div className="flex justify-center mt-5 mb-5">
         <input
           type="text"
           placeholder="Search here"
-          className="w-96 rounded-lg h-12 border border-black pl-3 focus:border-blue-600"
+          className="w-96 rounded-lg h-12 border border-black pl-3 focus:border-blue-600 mt-12 bg-gray-100"
           value={searchTerm}
           onChange={handleSearch}
         />

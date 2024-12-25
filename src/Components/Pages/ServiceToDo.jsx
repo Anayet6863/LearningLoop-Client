@@ -20,8 +20,8 @@ const serviceToDo = () => {
 
   return (
     <>
-      <div className="mt-10">
-        <h1 className="text-3xl text-red-500 text-center">
+      <div className="mt-10 p-10">
+        <h1 className="text-3xl font-bold text-red-500 text-center">
           Your Booking List:
         </h1>
       </div>

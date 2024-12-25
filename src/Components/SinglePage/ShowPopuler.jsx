@@ -14,9 +14,9 @@ const ShowPopuler = ({ item }) => {
     userName,
   } = item;
   return (
-    <div>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex">
-        {/* Left Section: Service Image and Details */}
+    <div className="hover:scale-105">
+      <div className="bg-gradient-to-b from-blue-100 via-blue-50 to-cyan-100 shadow-lg rounded-lg overflow-hidden flex">
+    
         <div className="w-2/3 p-4">
           <img
             src={serviceImage}

@@ -15,6 +15,7 @@ import SingleServiceDetails from "../Pages/SingleServiceDetails";
 import ServiceBooked from "../Pages/ServiceBooked";
 import ServiceUpdate from "../Pages/ServiceUpdate";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/Error";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -99,11 +100,12 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/updatedService/${params.id}`),
       },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
+      },
     ],
   },
-  {
-    path: "*",
-    element: <h1>ERROR!</h1>,
-  },
+  
 ]);
 export default router;

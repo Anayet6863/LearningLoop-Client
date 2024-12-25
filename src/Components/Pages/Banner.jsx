@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import 'animate.css';
 const Banner = () => {
   const navigate = useNavigate();
   const handleBtn = ()=>{
@@ -8,14 +8,15 @@ const Banner = () => {
 
   }
   return (
-    <div className="carousel w-full h-[500px]">
+    <div className="carousel w-full h-[500px] ">
       <div id="slide1" className="carousel-item relative w-full">
         <img
           src="https://i.ibb.co.com/G3wCDQ8/Robotics-Camp.jpg"
           className="w-full h-[500px]"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-          <div class="ml-20 text-white">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center
+         ">
+          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
             <h1 class="text-5xl font-bold">Welcome to Robotics Camp</h1>
             <h1 class="text-5xl font-bold">EDUCATION</h1>
             <p className="mt-4 text-lg">
@@ -27,7 +28,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between ">
           <a href="#slide4" className="btn btn-circle">
             ❮
           </a>
@@ -43,7 +44,7 @@ const Banner = () => {
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-            <div class="ml-20 text-white">
+            <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
               <h2 className="text-4xl font-bold">
                 Discover the Beauty of Mathematics
               </h2>
@@ -76,7 +77,7 @@ const Banner = () => {
         />
 
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-          <div class="ml-20 text-white">
+          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
             <h2 className="text-4xl font-bold">Code Your Way to the Future</h2>
 
             <p className="mt-4 text-lg">
@@ -106,7 +107,7 @@ const Banner = () => {
         />
 
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
-          <div class="ml-20 text-white">
+          <div class="ml-20 text-white animate__animated animate__bounce animate__slow animate__infinite">
             <h2 className="text-4xl font-bold">
               Feel the Rhythm of Creativity
             </h2>

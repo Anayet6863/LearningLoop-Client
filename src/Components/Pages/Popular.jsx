@@ -9,9 +9,10 @@ const Popular = () => {
     },[])
     //console.log(allData);
     return (
-        <div >
-        <h1 className='text-3xl text-red-500 font-bold text-center'>Populer</h1>
-        <div className='grid md:grid-cols-2 gap-5 m-10'>
+        <div className='p-10'>
+        <h1 className='text-5xl  text-black font-bold text-center'>Populer services</h1>
+        <p className='text-lg  text-gray-400 font-bold text-center mt-2'>Popular Services That Are Worth Trying</p>
+        <div className='grid md:grid-cols-2 gap-10 m-10  container mx-auto'>
             
            {
             allData.map(item=><ShowPopuler key={item._id} item={item}></ShowPopuler>)

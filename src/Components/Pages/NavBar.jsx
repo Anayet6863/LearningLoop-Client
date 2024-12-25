@@ -14,9 +14,7 @@ const NavBar = () => {
   const handleThemeBtn = () => {
     toggleTheme();
   };
- 
-  
- 
+
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
@@ -65,22 +63,27 @@ const NavBar = () => {
           <option value="/serviceToDo">Service To-Do</option>
         </select>
       )}
-      <button className="btn w-12 h-12 flex items-center justify-center rounded-full p-1 bg-base-100 mr-3 lg:hidden" onClick={() => { handleThemeBtn(); handleCheckboxChange(); }}>
-          {isChecked ? (
-            <img
-              src="https://i.ibb.co.com/yFbw5wL/icons8-sun-50.png"
-              alt="Light Theme"
-              className="w-10 h-10 rounded-[100%]"
-            />
-          ) : (
-            <img
-              src="https://i.ibb.co.com/xHXjTGv/icons8-sun-50-1.png"
-              
-              alt="Dark Theme"
-              className="w-10 h-10 rounded-[100%]"
-            />
-          )}
-        </button>
+      <button
+        className="btn w-12 h-12 flex items-center justify-center rounded-full p-1 bg-base-100 mr-3 lg:hidden"
+        onClick={() => {
+          handleThemeBtn();
+          handleCheckboxChange();
+        }}
+      >
+        {isChecked ? (
+          <img
+            src="https://i.ibb.co.com/yFbw5wL/icons8-sun-50.png"
+            alt="Light Theme"
+            className="w-10 h-10 rounded-[100%]"
+          />
+        ) : (
+          <img
+            src="https://i.ibb.co.com/xHXjTGv/icons8-sun-50-1.png"
+            alt="Dark Theme"
+            className="w-10 h-10 rounded-[100%]"
+          />
+        )}
+      </button>
     </div>,
   ];
 
@@ -118,14 +121,21 @@ const NavBar = () => {
             className="w-[50px] h-[50px] rounded-full hover:scale-150"
           />
         </div>
-        <h1 className="text-2xl md:text-4xl font-bold  md:ml-4">LearningLoop</h1>
+        <h1 className="text-2xl md:text-4xl font-bold  md:ml-4">
+          LearningLoop
+        </h1>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 items-center ">{links}</ul>
       </div>
       <div className="navbar-end">
-        
-        <button className="btn w-12 h-12 items-center justify-center rounded-full p-1 bg-gray-200 mr-3 hidden sm:block" onClick={() => { handleThemeBtn(); handleCheckboxChange(); }}>
+        <button
+          className="btn w-12 h-12 items-center justify-center rounded-full p-1 bg-gray-200 mr-3 hidden sm:block"
+          onClick={() => {
+            handleThemeBtn();
+            handleCheckboxChange();
+          }}
+        >
           {isChecked ? (
             <img
               src="https://i.ibb.co.com/yFbw5wL/icons8-sun-50.png"
@@ -135,7 +145,6 @@ const NavBar = () => {
           ) : (
             <img
               src="https://i.ibb.co.com/xHXjTGv/icons8-sun-50-1.png"
-              
               alt="Dark Theme"
               className="w-10 h-10 rounded-[100%]"
             />

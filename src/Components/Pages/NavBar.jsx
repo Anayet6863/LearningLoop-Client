@@ -11,13 +11,12 @@ const NavBar = () => {
   // console.log(user);
   const [isChecked, setIsChecked] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  console.log(theme);
   const handleThemeBtn = () => {
     toggleTheme();
   };
  
   
-  console.log(isChecked);
+ 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
@@ -66,7 +65,7 @@ const NavBar = () => {
           <option value="/serviceToDo">Service To-Do</option>
         </select>
       )}
-      <button className="btn w-12 h-12 flex items-center justify-center rounded-full p-1 bg-gray-200 mr-3 lg:hidden" onClick={() => { handleThemeBtn(); handleCheckboxChange(); }}>
+      <button className="btn w-12 h-12 flex items-center justify-center rounded-full p-1 bg-base-100 mr-3 lg:hidden" onClick={() => { handleThemeBtn(); handleCheckboxChange(); }}>
           {isChecked ? (
             <img
               src="https://i.ibb.co.com/yFbw5wL/icons8-sun-50.png"

@@ -44,7 +44,7 @@ const ServiceBooked = () => {
       specialInstructions,
       currentUserMail,
     };
-    //console.log(bookedInfo);
+    console.log(bookedInfo);
 
     Swal.fire({
       title: "Are you sure?",

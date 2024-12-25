@@ -5,7 +5,6 @@ const ShowPopuler = ({ item }) => {
     const handleViewBtn =()=>{
         navigate('/services');
     }
-  console.log(item);
   const {
     serviceImage,
     serviceName,

@@ -12,9 +12,11 @@ const serviceToDo = () => {
     });
   }, []);
   const { user } = useContext(AuthContext);
-  console.log(filterData);
-  const bookedData = filterData.filter((item) => item?.currentUserMail === user?.email);
-  console.log(bookedData);
+  // console.log(filterData);
+  const bookedData = filterData.filter(
+    (item) => item?.userMail === user?.email
+  );
+  // console.log(bookedData);
 
   return (
     <>
@@ -23,11 +25,36 @@ const serviceToDo = () => {
           Your Booking List:
         </h1>
       </div>
-      <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2 items-center md:p-10">
+      <div className="overflow-x-auto">
+        <table className="table-auto w-full border-collapse border border-gray-300 rounded-lg">
+          {/* Table Header */}
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border border-gray-300 px-4 py-2">Image</th>
+              <th className="border border-gray-300 px-4 py-2">Provider Name</th>
+              <th className="border border-gray-300 px-4 py-2">Service Name</th>
+              <th className="border border-gray-300 px-4 py-2">Description</th>
+              <th className="border border-gray-300 px-4 py-2">Booked Date</th>
+              <th className="border border-gray-300 px-4 py-2">Status</th>
+              <th className="border border-gray-300 px-4 py-2">
+                Change Status
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {bookedData.map((item) => (
+              <ShowServiceToDo key={item._id} item={item} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* <div className="">
         {bookedData.map((item) => (
           <ShowServiceToDo key={item._id} item={item}></ShowServiceToDo>
         ))}
-      </div>
+      </div> */}
     </>
   );
 };

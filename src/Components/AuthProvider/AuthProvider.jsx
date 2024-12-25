@@ -67,6 +67,7 @@ const handleResetPassword = (email)=>{
       };
     });
   }, []);
+  console.log(user?.email);
   return (
     <AuthContext.Provider value={AuthInfo}>{children}</AuthContext.Provider>
   );

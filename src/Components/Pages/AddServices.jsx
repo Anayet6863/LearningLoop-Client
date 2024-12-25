@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
+import lottieData from '../../../src/assets/Animation - 1735147524860.json'
 const AddServices = () => {
     const {user} = useContext(AuthContext);
     //console.log(user);
@@ -51,12 +53,13 @@ const AddServices = () => {
   return (
     <div className="bg-gray-400 flex justify-center items-center min-h-[calc(100vh-95px)]">
       <div class="flex bg-white rounded-lg shadow-lg w-4/5 max-w-5xl overflow-hidden">
-        <div class="w-1/2 hidden md:block">
-          <img
+        <div class="w-1/2 hidden md:block bg-gray-600">
+          {/* <img
             src="https://i.ibb.co.com/mN4JGBf/GTY-Special-Offer-Page-Hero-5x2.webp"
             alt="Hallway"
             class="h-full w-full"
-          />
+          /> */}
+          <Lottie animationData={lottieData}></Lottie>
         </div>
 
         <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SingleServiceShow from "../SinglePage/SingleServiceShow";
+import Lottie from "lottie-react";
+import lottieData from '../../../src/assets/Animation - 1735147985407.json'
 
 const Services = () => {
   const [allData, setAllData] = useState([]);
@@ -39,6 +41,9 @@ const Services = () => {
           value={searchTerm}
           onChange={handleSearch}
         />
+        <div className="w-20 h-20 rounded-full -ml-24" >
+          <Lottie animationData={lottieData}></Lottie>
+        </div>
       </div>
 
       {filterService.map((item) => (

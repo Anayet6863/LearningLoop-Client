@@ -1,5 +1,6 @@
 import { Children, createContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
+import axios from 'axios'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -58,15 +59,70 @@ const handleResetPassword = (email)=>{
     loading,
     handleResetPassword,
   };
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+  //     setUser(currentUser);
+  //     if(currentUser?.email){
+  //        const email = currentUser.email;
+  //        console.log(email);
+  //       const userInfo={userMail:user}
+  //       axios.post('http://localhost:5000/jwt',email,{withCredentials:true})
+  //       .then(res=>console.log(res.data))
+  //       setLoading(false);
+  //     }
+  //     else{
+  //       axios.post('http://localhost:5000/jwtLogout',email,{withCredentials:true})
+  //       .then(res=>console.log(res.data))
+  //       setLoading(false);
+  //     }
+
+     
+  //     return () => {
+  //       unsubscribe();
+  //     };
+  //   });
+  // }, []);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
+  
+      if (currentUser?.email) {
+        const email = currentUser.email;
+        console.log(email);
+  
+       
+        const userInfo = { email: email };
+        axios
+          .post('http://localhost:5000/jwt', userInfo, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            setLoading(false);
+          });
+      } else {
+       
+        axios
+          .post('http://localhost:5000/jwtLogout', {}, { withCredentials: true }) 
+          .then((res) => {
+            console.log(res.data);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            setLoading(false);
+          });
+      }
+  
       return () => {
         unsubscribe();
       };
     });
   }, []);
+  
+
   console.log(user?.email);
   return (
     <AuthContext.Provider value={AuthInfo}>{children}</AuthContext.Provider>

@@ -87,7 +87,7 @@ const ServiceBooked = () => {
     });
   };
   return (
-    <div>
+    <div className="pt-5 pb-5">
       <div className="max-w-4xl mx-auto mt-8 p-6 bg-gradient-to-r from-indigo-100 to-blue-50 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-center text-indigo-700 mb-6">
           Book Your Service
@@ -188,7 +188,7 @@ const ServiceBooked = () => {
           {/* Purchase Button */}
           <div className="mt-6">
             <button
-              className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-2 rounded-lg hover:shadow-lg hover:from-blue-600 hover:to-indigo-600 transition"
+              className="w-full bg-gradient-to-r from-purple-600 to-indigo-700 text-white font-semibold py-2 rounded-lg hover:shadow-lg hover:from-blue-600 hover:to-indigo-600 transition"
               onClick={handlePurchaseBtn}
             >
               Purchase Service

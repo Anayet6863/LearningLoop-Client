@@ -1,11 +1,15 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Lottie from "lottie-react";
 import lottieData from '../../../src/assets/Animation - 1735147746382.json'
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const ServiceUpdate = () => {
   //const [servieData,setServiceData] = useState([])
+  const {user}=useContext(AuthContext)
+  const userMail = user?.email;
+  console.log(userMail);
   const { id } = useParams();
 
   const servieData = useLoaderData();
@@ -32,6 +36,7 @@ const ServiceUpdate = () => {
       serviceDescription,
       serviceArea,
       servicePrice,
+      userMail,
     };
     //console.log(updateInfo);
 
@@ -46,7 +51,7 @@ const ServiceUpdate = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .patch(`http://localhost:5000/updatedService/${id}`, updateInfo)
+          .patch(`http://localhost:5000/updatedService/${id}`, updateInfo,{withCredentials:true})
           .then((res) => {
             console.log(res.data);
             if(res.data.modifiedCount>0){
@@ -56,7 +61,14 @@ const ServiceUpdate = () => {
                     icon: "success",
                   });
             }
-          });
+          })
+          .catch(err=>{
+            Swal.fire({
+              title: "Unauthorized user!",
+              text: "Try again",
+              icon: "warning",
+            });
+          })
        
       }
     });
@@ -66,11 +78,6 @@ const ServiceUpdate = () => {
     <div className="bg-gray-400 flex justify-center items-center min-h-[calc(100vh-95px)]">
       <div class="flex bg-white rounded-lg shadow-lg w-4/5 max-w-5xl overflow-hidden">
         <div class="w-1/2 hidden md:block bg-gray-500">
-          {/* <img
-            src="https://i.ibb.co.com/mN4JGBf/GTY-Special-Offer-Page-Hero-5x2.webp"
-            alt="Hallway"
-            class="h-full w-full"
-          /> */}
           <Lottie animationData={lottieData}></Lottie>
         </div>
 

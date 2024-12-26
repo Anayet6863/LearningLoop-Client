@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import BookedDataShow from "../SinglePage/BookedDataShow";
+import Swal from "sweetalert2";
 
 const BookedServices = () => {
+  const {loading}=useContext(AuthContext)
   const [filterData, setFilterData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/bookedService").then((res) => {
+    axios.get("http://localhost:5000/bookedService",{withCredentials:true}).then((res) => {
       setFilterData(res.data);
     });
   }, []);
@@ -14,6 +16,17 @@ const BookedServices = () => {
   console.log(filterData);
   const bookedData = filterData.filter((item) => item?.currentUserMail === user?.email);
   console.log(bookedData);
+  useEffect(() => {
+    if (bookedData.length === 0 && loading) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You don't have any service which you added!",
+        // footer: `<button onClick={handleClick}  className='btn'>Why do I have this issue?</button>`,
+      });
+    }
+  }, []);
+  
 
   return (
     <>

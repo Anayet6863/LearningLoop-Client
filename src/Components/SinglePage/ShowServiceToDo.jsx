@@ -8,12 +8,12 @@ const ShowServiceToDo = ({ item }) => {
   const handleStatusChange = (e, id) => {
     const updatedStatus = e.target.value;
     setNewServiceStatus(updatedStatus);
-    console.log(updatedStatus);
+    //console.log(updatedStatus);
 
     const info = { newServiceStatus: updatedStatus, currentUserMail};
 
     axios
-      .patch(`http://localhost:5000/updatedStatus/${id}`, info)
+      .patch(`http://localhost:5000/updatedStatus/${id}`, info,{withCredentials:true})
       .then((res) => {
         console.log(res.data);
         Swal.fire({
@@ -49,51 +49,6 @@ const ShowServiceToDo = ({ item }) => {
   } = item;
 
   return (
-    // <div class="bg-white shadow-lg rounded-lg overflow-hidden p-2">
-    //   <img
-    //     src={serviceImage}
-    //     alt="Service Image"
-    //     class="w-full h-48 hover:scale-105"
-    //   />
-    //   <div class="p-6">
-    //     <div class="flex items-center mb-4">
-    //       <div class="bg-blue-100 text-blue-600 font-semibold text-sm px-4 py-2 rounded-full">
-    //         Booked: {serviceDate}
-    //       </div>
-    //     </div>
-    //     <h3 class="text-lg font-bold text-gray-800 mb-2">{serviceName}</h3>
-    //     <p class="text-gray-600 text-sm mb-4">{serviceDescription}</p>
-
-    //     {/* Options */}
-
-    //     <h1 className="text-xl text-red-700">Service staus is:</h1>
-    //     {serviceStatus === "pending" ? (
-    //       <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
-    //         Pending
-    //       </button>
-    //     ) : serviceStatus === "working" ? (
-    //       <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
-    //         Working
-    //       </button>
-    //     ) : (
-    //       <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-    //         Accepted
-    //       </button>
-    //     )}
-    //     <h1>Change the service Status?</h1>
-    //     <div class="flex space-x-4 ">
-    //       <select
-    //         value={newServiceStatus}
-    //         onChange={(e) => handleStatusChange(e, item._id)}
-    //         className="p-2 rounded-md border bg-purple-700 text-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
-    //       >
-    //         <option value="pending">Pending</option>
-    //         <option value="working">Working</option>
-    //         <option value="completed">Completed</option>
-    //       </select>
-    //     </div>
-    //   </div>
-    // </div>
     <tr>
       <td className="border border-gray-300 px-4 py-2 text-center">
         <img

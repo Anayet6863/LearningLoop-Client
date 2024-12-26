@@ -26,7 +26,7 @@ const ServiceBooked = () => {
     userMail,
   } = item;
   const id = _id;
-  console.log(id);
+  // console.log(id);
   const handlePurchaseBtn = (e) => {
     e.preventDefault();
     // const specialInstruction = e.target.specialInstruction.value;
@@ -60,7 +60,7 @@ const ServiceBooked = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .post("http://localhost:5000/bookedService", bookedInfo)
+          .post("http://localhost:5000/bookedService", bookedInfo,{withCredentials:true})
           .then((res) => {
             if (res.data.acknowledged) {
               Swal.fire({

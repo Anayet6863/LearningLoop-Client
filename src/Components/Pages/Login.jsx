@@ -14,16 +14,16 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    // if(password.length<6){
-    //   setError("Password length must be minimum 6.")
-    //   return;
-    // }
-    // if (!regex.test(password)) {
-    //   setError(
-    //     "Password must have at least Uppercase letter && Lowercser character."
-    //   );
-    //   return;
-    // }
+    if(password.length<6){
+      setError("Password length must be minimum 6.")
+      return;
+    }
+    if (!regex.test(password)) {
+      setError(
+        "Password must have at least Uppercase letter && Lowercser character."
+      );
+      return;
+    }
     //console.log(email,password);
     handleLogin(email, password)
       .then((res) => {

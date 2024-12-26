@@ -19,7 +19,7 @@ const ManageDataShow = ({item}) => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-          axios.delete(`http://localhost:5000/deleteBookedService/${id}`)
+          axios.delete(`http://localhost:5000/deleteBookedService/${id}`,{withCredentials:true})
           .then(res=>{
             if(res.data.deletedCount>0){
               Swal.fire({
@@ -28,6 +28,13 @@ const ManageDataShow = ({item}) => {
             icon: "success"
           });
             }
+          })
+          .catch(err=>{
+            Swal.fire({
+              title: "Unauthorized user!",
+              text: "Try again!",
+              icon: "warning"
+            });
           })
           
         }

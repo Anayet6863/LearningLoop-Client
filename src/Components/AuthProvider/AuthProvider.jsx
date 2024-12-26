@@ -59,29 +59,6 @@ const handleResetPassword = (email)=>{
     loading,
     handleResetPassword,
   };
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     setUser(currentUser);
-  //     if(currentUser?.email){
-  //        const email = currentUser.email;
-  //        console.log(email);
-  //       const userInfo={userMail:user}
-  //       axios.post('http://localhost:5000/jwt',email,{withCredentials:true})
-  //       .then(res=>console.log(res.data))
-  //       setLoading(false);
-  //     }
-  //     else{
-  //       axios.post('http://localhost:5000/jwtLogout',email,{withCredentials:true})
-  //       .then(res=>console.log(res.data))
-  //       setLoading(false);
-  //     }
-
-     
-  //     return () => {
-  //       unsubscribe();
-  //     };
-  //   });
-  // }, []);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

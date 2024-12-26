@@ -5,10 +5,11 @@ import Swal from "sweetalert2";
 import Lottie from "lottie-react";
 import image from '../../../src/assets/lottieImage'
 const Registration = () => {
-  const {user, handleRegister, signOut, manageProfile, handleGoogleLogin } =
+  const {user, handleRegister, signOut, manageProfile, handleGoogleLogin,handleLogOut } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -16,16 +17,26 @@ const Registration = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const userInfo = { name, photoUrl, email, password };
-    // console.log(userInfo);
+    if(password.length<6){
+      setError("Password length must be minimum 6.")
+      return;
+    }
+    if (!regex.test(password)) {
+      setError(
+        "Password must have at least Uppercase letter && Lowercser character."
+      );
+      return;
+    }
     handleRegister(email, password)
       .then((res) => {
-        // Update profile
+        
         manageProfile(name, photoUrl)
           .then(() => {
-            // Navigate to home
+         
             navigate("/login");
+            handleLogOut();
 
-            // Show success message
+            
             Swal.fire({
               title: "Congrtulations. Successfully regestered.",
               showClass: {
@@ -51,18 +62,19 @@ const Registration = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setError(errorMessage); // Show error on UI
+        setError(errorMessage); 
         console.error("Registration error:", error);
       });
   };
 
-  // Handle Google login
+
   const handleGoogleLoginBtn = () => {
     handleGoogleLogin()
       .then((res) => {
-        navigate("/login"); // Navigate to home after login
+        navigate("/login"); 
 
         // Show success message
+        handleLogOut();
         Swal.fire({
           title: "Congrtulations. Successfully regestered.",
           showClass: {
@@ -87,7 +99,8 @@ const Registration = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex items-center justify-center min-h-[calc(100vh-95px)] bg-gradient-to-b from-purple-500 to-blue-500">
+    <div className="flex items-center justify-center min-h-[calc(100vh-95px)]
+     bg-gradient-to-b from-purple-500 to-blue-500">
       <div className="">
           <Lottie animationData={image}></Lottie>
       </div>

@@ -34,7 +34,7 @@ const AddServices = () => {
           confirmButtonText: "Yes, add it!"
         }).then((result) => {
           if (result.isConfirmed) {
-            axios.post('http://localhost:5000/addService',userInfo)
+            axios.post('http://localhost:5000/addService',userInfo,{withCredentials:true})
             //console.log(userInfo);
             .then(res=>{
               //console.log(res.data);
@@ -46,6 +46,16 @@ const AddServices = () => {
                 });
                 form.reset()
             })
+            .catch(err=>{
+              console.log(err.message);
+              Swal.fire({
+                title: "Unauthorized User!",
+                text: "Please try again.",
+                icon: "warning"
+              });
+            })
+          
+            
           }
         });
 

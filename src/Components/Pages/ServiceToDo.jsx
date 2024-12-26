@@ -10,8 +10,11 @@ const serviceToDo = () => {
   const [filterData, setFilterData] = useState([]);
   const { loading } = useContext(AuthContext);
   useEffect(() => {
+      document.title = "LearningLoop | Service To Do";
+    }, []);
+  useEffect(() => {
     axios
-      .get("http://localhost:5000/bookedService", { withCredentials: true })
+      .get("https://learning-loop-server.vercel.app/bookedService", { withCredentials: true })
       .then((res) => {
         setFilterData(res.data);
       });

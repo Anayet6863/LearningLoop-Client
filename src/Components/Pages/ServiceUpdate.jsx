@@ -51,7 +51,7 @@ const ServiceUpdate = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .patch(`http://localhost:5000/updatedService/${id}`, updateInfo,{withCredentials:true})
+          .patch(`https://learning-loop-server.vercel.app/updatedService/${id}`, updateInfo,{withCredentials:true})
           .then((res) => {
             console.log(res.data);
             if(res.data.modifiedCount>0){

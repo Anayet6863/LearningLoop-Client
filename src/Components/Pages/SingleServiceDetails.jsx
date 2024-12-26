@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const SingleServiceDetails = () => {
   const user = useContext(AuthContext);
+  useEffect(() => {
+      document.title = "LearningLoop | Single Service";
+    }, []);
   // console.log(user);
   const item = useLoaderData();
   //const {userImage,userName} = user;

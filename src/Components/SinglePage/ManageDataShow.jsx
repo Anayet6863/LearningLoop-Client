@@ -19,7 +19,7 @@ const ManageDataShow = ({item}) => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-          axios.delete(`http://localhost:5000/deleteBookedService/${id}`,{withCredentials:true})
+          axios.delete(`https://learning-loop-server.vercel.app/deleteBookedService/${id}`,{withCredentials:true})
           .then(res=>{
             if(res.data.deletedCount>0){
               Swal.fire({

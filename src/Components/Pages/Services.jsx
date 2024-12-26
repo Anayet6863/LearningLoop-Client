@@ -8,10 +8,13 @@ const Services = () => {
   const [allData, setAllData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterService, setFilterService] = useState([]);
+  useEffect(() => {
+      document.title = "LearningLoop | All Services";
+    }, []);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allServices")
+      .get("https://learning-loop-server.vercel.app/allServices")
       .then((response) => {
         setAllData(response.data);
         setFilterService(response.data);

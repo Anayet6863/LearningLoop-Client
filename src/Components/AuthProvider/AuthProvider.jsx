@@ -70,7 +70,7 @@ const handleResetPassword = (email)=>{
        
         const userInfo = { email: email };
         axios
-          .post('http://localhost:5000/jwt', userInfo, { withCredentials: true })
+          .post('https://learning-loop-server.vercel.app/jwt', userInfo, { withCredentials: true })
           .then((res) => {
             console.log(res.data);
             setLoading(false);
@@ -82,7 +82,7 @@ const handleResetPassword = (email)=>{
       } else {
        
         axios
-          .post('http://localhost:5000/jwtLogout', {}, { withCredentials: true }) 
+          .post('https://learning-loop-server.vercel.app/jwtLogout', {}, { withCredentials: true }) 
           .then((res) => {
             console.log(res.data);
             setLoading(false);

@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             <ManageServices></ManageServices>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allServices"),
+        loader: () => fetch("https://learning-loop-server.vercel.app/allServices"),
       },
       {
         path: "/bookedServices",
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleService/${params.id}`),
+          fetch(`https://learning-loop-server.vercel.app/singleService/${params.id}`),
       },
       {
         path: "/bookedService/:id",
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleService/${params.id}`),
+          fetch(`https://learning-loop-server.vercel.app/singleService/${params.id}`),
       },
       {
         path: "/serviceUpdate/:id",
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/updatedService/${params.id}`),
+          fetch(`https://learning-loop-server.vercel.app/updatedService/${params.id}`),
       },
       {
         path: "*",

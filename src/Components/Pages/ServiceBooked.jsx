@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -10,9 +10,13 @@ const ServiceBooked = () => {
   const [specialInstructions, setSpecialInstructions] = useState("");
  // console.log(serviceDate, specialInstructions);
   //   console.log(item);
+  useEffect(() => {
+      document.title = "LearningLoop | Booking";
+    }, []);
   const { user } = useContext(AuthContext);
   //console.log(user?.email);
   const currentUserMail = user?.email;
+  const navigate = useNavigate();
   
   const {
     _id,
@@ -60,12 +64,13 @@ const ServiceBooked = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .post("http://localhost:5000/bookedService", bookedInfo,{withCredentials:true})
+          .post("https://learning-loop-server.vercel.app/bookedService", bookedInfo,{withCredentials:true})
           .then((res) => {
             if (res.data.acknowledged) {
+              navigate("/bookedServices")
               Swal.fire({
                 title: "Wow! Booked.",
-                text: "Your Service been deleted.",
+                text: "Your Service has been booked.",
                 icon: "success",
               });
             }

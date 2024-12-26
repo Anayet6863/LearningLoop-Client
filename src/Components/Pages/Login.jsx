@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
@@ -8,6 +8,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+   useEffect(() => {
+          document.title = "LearningLoop | Login";
+        }, []);
   const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
   const handleLoginForm = (e) => {

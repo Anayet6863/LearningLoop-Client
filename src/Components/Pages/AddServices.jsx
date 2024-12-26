@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Lottie from "lottie-react";
 import lottieData from '../../../src/assets/Animation - 1735147524860.json'
+import { useNavigate } from "react-router-dom";
 const AddServices = () => {
     const {user} = useContext(AuthContext);
+    useEffect(() => {
+        document.title = "LearningLoop | Add Services";
+      }, []);
+      const navigate = useNavigate();
     //console.log(user);
    // console.log(user.photoURL);
    // console.log(user.displayName);
@@ -34,11 +39,12 @@ const AddServices = () => {
           confirmButtonText: "Yes, add it!"
         }).then((result) => {
           if (result.isConfirmed) {
-            axios.post('http://localhost:5000/addService',userInfo,{withCredentials:true})
+            axios.post('https://learning-loop-server.vercel.app/addService',userInfo,{withCredentials:true})
             //console.log(userInfo);
             .then(res=>{
               //console.log(res.data);
               if(res.data.acknowledged)
+                navigate('/services')
                 Swal.fire({
                   title: "Hurrah!",
                   text: "Your service is added..",

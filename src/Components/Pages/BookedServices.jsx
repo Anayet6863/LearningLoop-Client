@@ -8,7 +8,7 @@ const BookedServices = () => {
   const {loading}=useContext(AuthContext)
   const [filterData, setFilterData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/bookedService",{withCredentials:true}).then((res) => {
+    axios.get("https://learning-loop-server.vercel.app/bookedService",{withCredentials:true}).then((res) => {
       setFilterData(res.data);
     });
   }, []);
@@ -16,6 +16,9 @@ const BookedServices = () => {
   console.log(filterData);
   const bookedData = filterData.filter((item) => item?.currentUserMail === user?.email);
   console.log(bookedData);
+  useEffect(() => {
+      document.title = "LearningLoop | Booked Services";
+    }, []);
   useEffect(() => {
     if (bookedData.length === 0 && loading) {
       Swal.fire({

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import ManageDataShow from '../SinglePage/ManageDataShow';
@@ -9,6 +9,9 @@ const ManageServices = () => {
     const allServiceData = useLoaderData([]);
     const filterData = allServiceData.filter(item=> item?.userMail === user?.email)
     const {loading} = useContext(AuthContext)
+    useEffect(() => {
+        document.title = "LearningLoop | Manage Service";
+      }, []);
     //console.log(filterData);
     //console.log(filterData.length);
     {filterData.length <= 0 && loading &&

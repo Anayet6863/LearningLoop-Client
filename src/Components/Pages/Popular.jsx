@@ -4,7 +4,7 @@ import ShowPopuler from '../SinglePage/ShowPopuler';
 const Popular = () => {
     const [allData,setAllData]= useState([])
     useEffect(()=>{
-        axios.get('http://localhost:5000/populer')
+        axios.get('https://learning-loop-server.vercel.app/populer')
         .then(res=>setAllData(res.data))
     },[])
     //console.log(allData);

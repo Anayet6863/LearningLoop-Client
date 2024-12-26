@@ -13,7 +13,7 @@ const ShowServiceToDo = ({ item }) => {
     const info = { newServiceStatus: updatedStatus, currentUserMail};
 
     axios
-      .patch(`http://localhost:5000/updatedStatus/${id}`, info,{withCredentials:true})
+      .patch(`https://learning-loop-server.vercel.app/updatedStatus/${id}`, info,{withCredentials:true})
       .then((res) => {
         console.log(res.data);
         Swal.fire({

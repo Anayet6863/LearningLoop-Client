@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "./Banner";
 import Popular from "./Popular";
 import Tuitor from "./Tuitor";
@@ -7,6 +7,9 @@ import { motion } from "motion/react";
 import '../../../src/index.css'
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "LearningLoop | Home";
+  }, []);
   return (
     <div>
       <div className="bg-gradient-to-b from-purple-300 via-purple-50 to-indigo-100 pt-5 pb-10">

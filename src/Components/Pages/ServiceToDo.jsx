@@ -32,14 +32,14 @@ const serviceToDo = () => {
  
   
   return (
-    <>
+    <div className="min-h-screen">
       <div className="mt-10 p-10">
         <h1 className="text-3xl font-bold text-red-500 text-center">
           Your Booking List : Has {bookedData.length} items.
         </h1>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mx-4">
         <table className="table-auto w-full border-collapse border border-gray-300 rounded-lg">
           {/* Table Header */}
           <thead>
@@ -65,7 +65,7 @@ const serviceToDo = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

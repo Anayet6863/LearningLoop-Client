@@ -102,7 +102,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-95px)]
+    <div className="md:flex items-center justify-center min-h-[calc(100vh-95px)]
      bg-gradient-to-b from-purple-500 to-blue-500">
       <div className="">
           <Lottie animationData={image}></Lottie>
@@ -154,14 +154,14 @@ const Registration = () => {
 
           <button
             type="submit"
-            class="w-full px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:ring-2 focus:ring-green-400 focus:outline-none"
+            class="w-full px-4 py-2 text-white bg-purple-500 rounded-md hover:bg-green-600 focus:ring-2 focus:ring-green-400 focus:outline-none"
           >
             Register
           </button>
           <button
             type="submit"
             onClick={handleGoogleLoginBtn}
-            class="w-full px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:ring-2 focus:ring-green-400 focus:outline-none"
+            class="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-green-600 focus:ring-2 focus:ring-green-400 focus:outline-none"
           >
             Register with Google
           </button>

@@ -59,7 +59,7 @@ const Tuitor = () => {
         <h2 className="text-4xl font-bold text-gray-800">
           Qualified Online Tutors
         </h2>
-        <p className="text-lg text-gray-500">Ideal Tutor for Everyone</p>
+        <p className="text-lg mt-3 text-gray-500">Ideal Tutor for Everyone</p>
       </div>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {tutors.map((tutor, index) => (

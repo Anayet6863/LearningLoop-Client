@@ -15,9 +15,10 @@ const ShowPopuler = ({ item }) => {
   } = item;
   return (
     <div className="hover:scale-105">
-      <div className="bg-gradient-to-b from-blue-100 via-blue-50 to-cyan-100 shadow-lg rounded-lg overflow-hidden flex">
+      <div className="bg-gradient-to-b from-blue-100 via-blue-50 to-cyan-100 shadow-lg rounded-lg overflow-hidden
+       flex flex-col md:flex-row">
     
-        <div className="w-2/3 p-4">
+        <div className="md:w-2/3 p-4 ">
           <img
             src={serviceImage}
             alt={serviceName}
@@ -37,15 +38,15 @@ const ShowPopuler = ({ item }) => {
           </div>
         </div>
 
-        <div className="border-l border-gray-500"></div>
+        <div className="md:border-l border-b border-gray-500"></div>
 
-        <div className="w-1/3 p-4 flex flex-col items-center">
+        <div className="md:w-1/3 p-4 flex flex-col items-center justify-center">
           <h1 className="text-xl text-gray-950 mb-4">Provider</h1>
 
           <img
             src={userImage}
             alt={userName}
-            className="w-[75%] h-[50%] rounded-full  mb-2"
+            className="w-[120px] h-[120px] rounded-full  mb-2"
           />
           <span className="text-gray-700 text-xl text-center">{userName}</span>
         </div>

@@ -33,6 +33,7 @@ const BookedServices = () => {
 
   return (
     <>
+      <div className="min-h-screen m-4">
       <div className="mt-10"> 
         <h1 className="text-3xl text-red-500 font-bold text-center p-10">
           Your Booking List: Has {bookedData.length} services.
@@ -42,6 +43,7 @@ const BookedServices = () => {
         {bookedData.map((item) => (
           <BookedDataShow key={item._id} item={item}></BookedDataShow>
         ))}
+      </div>
       </div>
     </>
   );

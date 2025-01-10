@@ -8,17 +8,17 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-   useEffect(() => {
-          document.title = "LearningLoop | Login";
-        }, []);
+  useEffect(() => {
+    document.title = "LearningLoop | Login";
+  }, []);
   const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
   const handleLoginForm = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    if(password.length<6){
-      setError("Password length must be minimum 6.")
+    if (password.length < 6) {
+      setError("Password length must be minimum 6.");
       return;
     }
     if (!regex.test(password)) {
@@ -96,17 +96,17 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-[calc(100vh-98px)] bg-gradient-to-b from-blue-300 via-purple-100 to-indigo-200  flex items-center justify-center ">
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden flex max-w-4xl w-full ">
+    <div className="min-h-[calc(100vh-98px)] bg-gradient-to-b from-blue-300 via-purple-100 to-indigo-200 flex items-center justify-center ">
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden md:flex  max-w-4xl w-full ">
         {/* <!-- Left Section --> */}
-        <div class="w-1/2 bg-gradient-to-b from-purple-700 to-indigo-600 p-8 text-white hover:border hover:border-white">
+        <div class="md:w-1/2 bg-gradient-to-b from-purple-700 to-indigo-600 p-8 text-white hover:border hover:border-white">
           <div class="flex flex-col h-full justify-center">
             <h1 class="text-3xl font-bold mb-4">Welcome to LearnigLoop</h1>
             <p class="text-lg mb-8">Please login to have fun.</p>
             <div class="flex flex-col items-start gap-4 p-4 rounded-lg text-white">
               <div class="flex items-center gap-2">
                 <img
-                  src="https://i.ibb.co.com/CWqTS2j/image-2024-12-21-23-59-53.png"
+                  src="https://i.ibb.co.com/Sshq3mX/DALL-E-2024-12-24-10-52-03-A-colorful-modern-logo-design-for-an-educational-brand-The-logo-features.webp"
                   alt="Logo"
                   class="w-12 h-12 rounded-full"
                 />
@@ -135,7 +135,7 @@ const Login = () => {
         </div>
 
         {/* <!-- Right Section --> */}
-        <div class="w-1/2 p-8 hover:border hover:border-black">
+        <div class="md:w-1/2 p-8 hover:border hover:border-black">
           <h2 class="text-2xl font-bold text-gray-800 mb-6">Login</h2>
           <form class="space-y-4" onSubmit={handleLoginForm}>
             <div>

@@ -92,7 +92,7 @@ const ServiceBooked = () => {
     });
   };
   return (
-    <div className="pt-5 pb-5">
+    <div className="pt-5 pb-10">
       <div className="max-w-4xl mx-auto mt-8 p-6 bg-gradient-to-r from-indigo-100 to-blue-50 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-center text-indigo-700 mb-6">
           Book Your Service
@@ -170,6 +170,7 @@ const ServiceBooked = () => {
               <input
                 type="date"
                 name="ServiceDate"
+                required
                 className="w-full border border-blue-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 value={serviceDate}
                 onChange={(e) => setServiceDate(e.target.value)}
@@ -185,6 +186,7 @@ const ServiceBooked = () => {
                 name="specialInstruction"
                 placeholder="Enter address, area, or any special instructions..."
                 value={specialInstructions}
+                required
                 onChange={(e) => setSpecialInstructions(e.target.value)}
               ></textarea>
             </div>

@@ -43,7 +43,7 @@ const NavBar = () => {
     }
   };
   const links = [
-    <div className="nav space-x-4 p-3 w-auto h-auto ">
+    <div className="nav space-x-4 p-3 w-auto h-auto flex flex-col md:block">
       <NavLink to="/" className="p-2 text-xl font-bold">
         Home
       </NavLink>
@@ -88,7 +88,8 @@ const NavBar = () => {
   ];
 
   return (
-    <div className="navbar bg-base-500 fixed top-0 left-0 w-full  shadow-md z-50 backdrop-blur-lg bg-opacity-50  md:pl-24 md:pr-24">
+    <div className="navbar bg-base-500 fixed top-0 left-0 w-full  shadow-md z-50 backdrop-blur-lg bg-opacity-50
+      md:pl-24 md:pr-24">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -109,7 +110,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-60 h-76 p-2 shadow "
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-76 h-76 p-2 shadow"
           >
             {links}
           </ul>
@@ -118,7 +119,7 @@ const NavBar = () => {
           <img
             src="https://i.ibb.co.com/Sshq3mX/DALL-E-2024-12-24-10-52-03-A-colorful-modern-logo-design-for-an-educational-brand-The-logo-features.webp"
             alt=""
-            className="w-[50px] h-[50px] rounded-full hover:scale-150"
+            className="w-[30px h-[30px] md:w-[50px] md:h-[50px] rounded-full hover:scale-150"
           />
         </div>
         <h1 className="text-2xl md:text-4xl font-bold leckerli-one-regular  md:ml-4">

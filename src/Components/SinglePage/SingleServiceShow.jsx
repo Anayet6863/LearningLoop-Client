@@ -21,7 +21,7 @@ const SingleServiceShow = ({ item }) => {
   return (
     <div>
       <div class="flex justify-center">
-        
+        {/* Asdded */}
         <div class="grid md:grid-cols-2 gap-12  bg-white rounded-lg shadow-md p-6 w-[80%] hover:shadow-lg transition-shadow duration-300">
           {/* Left Section: Service Info */}
           <div class="flex-1">

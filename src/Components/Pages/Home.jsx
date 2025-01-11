@@ -5,6 +5,7 @@ import Tuitor from "./Tuitor";
 import Testimonials from "./Testemonials";
 import { motion } from "motion/react";
 import '../../../src/index.css'
+import PdfDownload from "./PdfDownload";
 
 const Home = () => {
   useEffect(() => {
@@ -37,6 +38,18 @@ const Home = () => {
       <div>
         <Tuitor></Tuitor>
       </div>
+      <motion.div
+        className="bg-gradient-to-r from-blue-100 to-green-100 py-10 pt-5"
+        initial={{ x: "100vw", opacity: 0 }} 
+        animate={{ x: 0, opacity: 1 }}
+        whileHover={{
+          scale: 1.1, 
+          transition: { duration: 0.5, ease: "easeInOut" }, 
+        }}
+        transition={{ duration: 2, ease: "easeInOut" }} 
+      >
+        <PdfDownload></PdfDownload>
+      </motion.div>
       <motion.div
         className="bg-gradient-to-r from-blue-100 to-green-100 py-10 pt-5"
         initial={{ x: "100vw", opacity: 0 }} 
